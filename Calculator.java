@@ -8,7 +8,7 @@ public class Calculator {
 	public static void main(String[] args) {
 		CalFrame frame = new CalFrame();
 		frame.setSize(600, 600);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 	}
 }
@@ -27,14 +27,14 @@ class CalcPanel extends JPanel {
 	private JPanel panel;
 	private double result;
 	private String oldCommand;
-	private boolean start_operation;	
+	private boolean startOperation;
 	
 	public CalcPanel() {
 		setLayout(new BorderLayout());
 
 		result = 0;
 		oldCommand = "=";
-		start_operation = true;
+		startOperation = true;
 
 		Font fontout = new Font("TimesRoman", Font.BOLD, 50);
 
@@ -105,18 +105,18 @@ class CalcPanel extends JPanel {
 				oldCommand = complexOp;
 				operation(Double.parseDouble(out.getText()));
 				oldCommand = "=";
-				start_operation = true;
+				startOperation = true;
 			} else {
 				if (start_operation) {
 					if (complexOp.equals("-")) {
 						out.setText(complexOp);
-						start_operation = false;
+						startOperation = false;
 					} else
 						oldCommand = complexOp;
 				} else {
 					operation(Double.parseDouble(out.getText()));
 					oldCommand = complexOp;
-					start_operation = true;
+					startOperation = true;
 				}
 			}
 		}
@@ -139,6 +139,8 @@ class CalcPanel extends JPanel {
 			break;
 		case "=":
 			result = x;
+			break;
+		case default:
 			break;
 		}
 		out.setText("" + result);

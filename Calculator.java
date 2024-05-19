@@ -41,31 +41,31 @@ class CalcPanel extends JPanel {
 		add(out, BorderLayout.NORTH);
 		out.setFont(fontout);
 
-		ActionListener OpOne = new OperationOne();
-		ActionListener OpTwo = new OperationTwo();
+		ActionListener Op1 = new OperationOne();
+		ActionListener Op2 = new OperationTwo();
 
 		panel = new JPanel();
 		panel.setLayout(new GridLayout(4, 5));
 
-		newButton("7", OpOne);
-		newButton("8", OpOne);
-		newButton("9", OpOne);
-		newButton("+", OpTwo);
+		newButton("7", Op1);
+		newButton("8", Op1);
+		newButton("9", Op1);
+		newButton("+", Op2);
 
-		newButton("4", OpOne);
-		newButton("5", OpOne);
-		newButton("6", OpOne);
-		newButton("-", OpTwo);
+		newButton("4", Op1);
+		newButton("5", Op1);
+		newButton("6", Op1);
+		newButton("-", Op2);
 
-		newButton("1", OpOne);
-		newButton("2", OpOne);
-		newButton("3", OpOne);
-		newButton("*", OpTwo);
+		newButton("1", Op1);
+		newButton("2", Op1);
+		newButton("3", Op1);
+		newButton("*", Op2);
 		
-		newButton("0", OpOne);
-		newButton("C", OpOne);
-		newButton("=", OpTwo);
-		newButton("/", OpTwo);
+		newButton("0", Op1);
+		newButton("C", Op1);
+		newButton("=", Op2);
+		newButton("/", Op2);
 
 		add(panel, BorderLayout.CENTER);
 

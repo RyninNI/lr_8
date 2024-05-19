@@ -27,14 +27,12 @@ class CalcPanel extends JPanel {
 	private JPanel panel;
 	private double result;
 	private String oldCommand;
-	private boolean startOperation;
 	
 	public CalcPanel() {
 		setLayout(new BorderLayout());
 
 		result = 0;
 		oldCommand = "=";
-		startOperation = true;
 
 		Font fontout = new Font("TimesRoman", Font.BOLD, 50);
 
@@ -86,11 +84,9 @@ class CalcPanel extends JPanel {
 			String input = event.getActionCommand();
 			if (start_operation) {
 				out.setText("");
-				start_operation = false;
 			}
 			if (input.equals("C")) {
 				out.setText("0");
-				start_operation = true;
 			} else {
 				out.setText(out.getText() + input);
 			}
@@ -105,18 +101,15 @@ class CalcPanel extends JPanel {
 				oldCommand = complexOp;
 				operation(Double.parseDouble(out.getText()));
 				oldCommand = "=";
-				startOperation = true;
 			} else {
 				if (start_operation) {
 					if (complexOp.equals("-")) {
 						out.setText(complexOp);
-						startOperation = false;
 					} else
 						oldCommand = complexOp;
 				} else {
 					operation(Double.parseDouble(out.getText()));
 					oldCommand = complexOp;
-					startOperation = true;
 				}
 			}
 		}
